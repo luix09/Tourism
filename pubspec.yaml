@@ -1,0 +1,135 @@
+name: tourism
+description: A new Flutter application.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^4.0.4
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+  - res/images/topbar_wallpaper.jpg
+  - res/images/amsterdam.jpg
+  - res/images/rome.jpg
+  - res/images/japanese.jpg
+  - res/images/london.jpg
+  - res/images/barcellona.jpg
+  - res/images/travelling.jpg
+
+  - res/images/propic/man1.jpg
+  - res/images/propic/man2.jpg
+  - res/images/propic/woman1.jpeg
+  - res/images/propic/woman2.jpg
+  - res/images/propic/codeek.jpg
+
+  - res/images/propic/Billie.jpg
+  - res/images/propic/Clarissa.jpg
+  - res/images/propic/Erika.jpg
+  - res/images/propic/Greta.jpg
+  - res/images/propic/James.jpg
+  - res/images/propic/Jane.jpg
+  - res/images/propic/John.jpg
+  - res/images/propic/Marco.jpg
+  - res/images/propic/Micaela.jpg
+  - res/images/propic/Shizuka.jpg
+  - res/images/propic/Tania.jpg
+  - res/images/propic/Giorgia.jpg
+
+  - res/images/flags/Italy.png
+  - res/images/flags/Spain.png
+  - res/images/flags/Germany.png
+  - res/images/flags/Netherlands.png
+  - res/images/flags/UK.png
+  - res/images/flags/Japan.png
+
+  - res/images/Berlin/pic1.jpg
+  - res/images/Berlin/pic2.jpg
+  - res/images/Berlin/pic3.jpg
+  - res/images/Berlin/pic4.jpg
+
+  - res/images/Tokyo/pic1.jpg
+  - res/images/Tokyo/pic2.jpg
+  - res/images/Tokyo/pic3.png
+  - res/images/Tokyo/pic4.jpg
+
+  - res/images/Amsterdam/pic1.jpg
+  - res/images/Amsterdam/pic2.jpg
+  - res/images/Amsterdam/pic3.jpeg
+  - res/images/Amsterdam/pic4.jpg
+
+  - res/images/Barcelona/pic1.jpg
+  - res/images/Barcelona/pic2.jpg
+  - res/images/Barcelona/pic3.jpg
+  - res/images/Barcelona/pic4.jpeg
+
+  - res/images/London/pic1.jpg
+  - res/images/London/pic2.jpg
+  - res/images/London/pic3.jpg
+  - res/images/London/pic4.jpg
+
+  - res/images/Rome/pic1.jpg
+  - res/images/Rome/pic2.jpg
+  - res/images/Rome/pic3.jpg
+  - res/images/Rome/pic4.jpg
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Merriweather
+      fonts:
+        - asset: res/fonts/Merriweather/Merriweather-Black.ttf
+        - asset: res/fonts/Merriweather/Merriweather-BlackItalic.ttf
+        - asset: res/fonts/Merriweather/Merriweather-Bold.ttf
+        - asset: res/fonts/Merriweather/Merriweather-BoldItalic.ttf
+        - asset: res/fonts/Merriweather/Merriweather-Italic.ttf
+        - asset: res/fonts/Merriweather/Merriweather-Light.ttf
+        - asset: res/fonts/Merriweather/Merriweather-LightItalic.ttf
+        - asset: res/fonts/Merriweather/Merriweather-Regular.ttf
+    - family: PTSans
+      fonts:
+        - asset: res/fonts/PT_Sans/PTSans-Bold.ttf
+        - asset: res/fonts/PT_Sans/PTSans-Italic.ttf
+        - asset: res/fonts/PT_Sans/PTSans-BoldItalic.ttf
+        - asset: res/fonts/PT_Sans/PTSans-Regular.ttf
