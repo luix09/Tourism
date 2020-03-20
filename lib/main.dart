@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourism/models/cities_model.dart';
+import 'package:tourism/models/logged_user_model.dart';
 import 'package:tourism/models/reviews_model.dart';
 import 'package:tourism/views/dashboard.dart';
 
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<CitiesModel>(create: (_) => CitiesModel()),
         ChangeNotifierProvider<UsersReviews>(create: (_) => UsersReviews()),
+        ChangeNotifierProvider<LoggedUserModel>(create: (_) => LoggedUserModel(
+            name: "Luigi",
+            surname: "Cuomo",
+            country: "Italy"))
       ],
       child: MaterialApp(
         title: 'Tourism',

@@ -58,10 +58,11 @@ class Dashboard extends StatelessWidget {
                       width: double.infinity,
                     ),
                     getDivider(DISCOVER),
-                    SizedBox(height: 20),
+                    SizedBox(height: 40),
                     Container(
-                      height: 200,
+                      height: 225,
                       child: ListView(
+                        padding: EdgeInsets.zero,
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
                         children: getDiscoverCities(context, DISCOVER),
@@ -70,7 +71,7 @@ class Dashboard extends StatelessWidget {
                     getDivider(TRENDS),
                     SizedBox(height: 20),
                     Container(
-                      height: 200,
+                      height: 225,
                       child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,

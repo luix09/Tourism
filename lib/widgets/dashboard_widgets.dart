@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourism/models/cities_model.dart';
+import 'package:tourism/models/logged_user_model.dart';
 import 'package:tourism/views/city_details.dart';
 import 'package:tourism/views/settings.dart';
 import 'package:tourism/views/user_page.dart';
 
-class TopBar extends StatelessWidget{
+class TopBar extends StatelessWidget {
   final String pathWallpaper = "res/images/topbar_wallpaper.jpg";
   final String propic = "res/images/propic/codeek.jpg";
   final String appName = "Tourism";
@@ -20,12 +21,11 @@ class TopBar extends StatelessWidget{
         children: <Widget>[
           SizedBox.expand(
               child: ClipRRect(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                child: Image.asset(pathWallpaper, fit: BoxFit.cover),
-              )
-          ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(5.0),
+            ),
+            child: Image.asset(pathWallpaper, fit: BoxFit.cover),
+          )),
           Align(
               alignment: Alignment.topLeft,
               child: Builder(
@@ -48,8 +48,7 @@ class TopBar extends StatelessWidget{
               ),
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingsPage())
-                );
+                    MaterialPageRoute(builder: (context) => SettingsPage()));
               },
             ),
           ),
@@ -78,8 +77,7 @@ class TopBar extends StatelessWidget{
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UserPage())
-                  );
+                      MaterialPageRoute(builder: (context) => UserPage()));
                 },
               ),
             ),
@@ -91,23 +89,134 @@ class TopBar extends StatelessWidget{
 }
 
 class TourismDrawer extends StatelessWidget {
+
+  final List nameTiles = [
+    {"name": "Dashboard", "icon": Icons.dashboard},
+    {"name": "Tours", "icon": Icons.not_listed_location},
+    {"name": "Choice of the Day", "icon": Icons.today},
+    {"name": "Ticket Coupons", "icon": Icons.euro_symbol},
+    {"name": "Invite friends", "icon": Icons.person_add},
+    {"name": "About us", "icon": Icons.info_outline}
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Drawer();
+    return Drawer(
+      child: Consumer<LoggedUserModel>(builder: (context, loggedUser, _) {
+        return Container(
+          color: Colors.white,
+          height: MediaQuery.of(context).size.height * 1,
+          width: MediaQuery.of(context).size.width * 1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                height: 250,
+                width: double.infinity,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      top: 50,
+                      left: 20,
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("res/logo/beach-logo.jpg"),
+                      ),
+                    ),
+                    Positioned(
+                      top: 60,
+                      left: 90,
+                      child: Text(
+                        "Tourism",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 35,
+                            fontFamily: "Merriweather"),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Text(
+                          "MENU",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "PTSans"),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: Text(
+                          "Hi ${loggedUser.name}!",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: "PTSans"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2),
+                child: Divider(
+                  thickness: 1,
+                ),
+              ),
+              ListView.builder(
+                  padding: EdgeInsets.only(left: 10, top: 5),
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: nameTiles.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Icon(nameTiles[index]["icon"]),
+                        title: Text(
+                          nameTiles[index]["name"],
+                          style: TextStyle(
+                            fontSize: 16
+                          ),
+                        ),
+                        trailing: Icon(Icons.chevron_right),
+                          onTap: (){
+                            switch(index) {
+                              case 0:
+                                Scaffold.of(context).openEndDrawer();
+                                break;
+                            }
+                          }
+                      );
+                    }
+                ),
+            ],
+          ),
+        );
+      }),
+    );
   }
 }
 
 class SearchBar extends StatefulWidget {
   final String hintText;
+
   SearchBar({this.hintText});
+
   @override
   _SearchBarState createState() => _SearchBarState();
 }
 
 class _SearchBarState extends State<SearchBar>
-  with SingleTickerProviderStateMixin {
-
-
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,16 +228,16 @@ class _SearchBarState extends State<SearchBar>
       ),
       child: TextField(
         cursorRadius: Radius.circular(20),
+        showCursor: false,
         decoration: InputDecoration(
-          border: InputBorder.none,
-          prefixIcon: Icon(Icons.search, color: Colors.black38.withOpacity(0.7)),
-          hintText: widget.hintText
-        ),
+            border: InputBorder.none,
+            prefixIcon:
+                Icon(Icons.search, color: Colors.black38.withOpacity(0.7)),
+            hintText: widget.hintText),
       ),
     );
   }
 }
-
 
 class MostRatedCard extends StatelessWidget {
   final String city;
@@ -163,12 +272,11 @@ class MostRatedCard extends StatelessWidget {
       return GestureDetector(
         onTap: () {
           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => CityDetails(
-                mostRatedModel.citiesAvailable.indexOf(city),
-                tagHeroSection)
-            )
-          );
+              context,
+              MaterialPageRoute(
+                  builder: (_) => CityDetails(
+                      mostRatedModel.citiesAvailable.indexOf(city),
+                      tagHeroSection)));
         },
         child: Container(
           child: Column(
@@ -260,16 +368,16 @@ class MostRatedCard extends StatelessWidget {
                       top: 10,
                       child: Text(
                         city.tours[0].titleTour,
-                        style:
-                            TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w700),
                       ),
                     ),
                     Positioned(
                       bottom: 14,
                       child: Text(
                         city.tours[0].shortDepth,
-                        style:
-                            TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w300),
                       ),
                     ),
                   ],
@@ -350,8 +458,8 @@ class CityOverview extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               child: Container(
-                height: 150,
-                width: 150,
+                height: 170,
+                width: 170,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
@@ -369,18 +477,21 @@ class CityOverview extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Hero(
-                    tag: citiesModel.citiesAvailable[city].name + tagHeroSection,
+                    tag:
+                        citiesModel.citiesAvailable[city].name + tagHeroSection,
                     child: Image(
-                      image:
-                          AssetImage(citiesModel.citiesAvailable[city].images[0]),
+                      image: AssetImage(
+                          citiesModel.citiesAvailable[city].images[0]),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => CityDetails(city, tagHeroSection)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => CityDetails(city, tagHeroSection)));
               },
             ),
             Text(
