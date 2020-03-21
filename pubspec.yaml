@@ -107,6 +107,7 @@ flutter:
   - res/images/Rome/pic4.jpg
 
   - res/logo/beach-logo.jpg
+  - res/wallpaper/login-image.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

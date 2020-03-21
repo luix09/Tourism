@@ -4,6 +4,7 @@ import 'package:tourism/models/cities_model.dart';
 import 'package:tourism/models/logged_user_model.dart';
 import 'package:tourism/models/reviews_model.dart';
 import 'package:tourism/views/dashboard.dart';
+import 'package:tourism/views/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,8 +29,9 @@ class MyApp extends StatelessWidget {
             color: Colors.black
           ),
         ),
-        initialRoute: '/dashboard',
+        initialRoute: '/login',
         routes: {
+          '/login': (context) => LoginPage(),
           '/dashboard': (context) => Dashboard(),
         },
       ),
