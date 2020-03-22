@@ -5,6 +5,7 @@ import 'package:tourism/models/logged_user_model.dart';
 import 'package:tourism/views/city_details.dart';
 import 'package:tourism/views/settings.dart';
 import 'package:tourism/views/user_page.dart';
+import 'package:tourism/widgets/about_us.dart';
 
 class TopBar extends StatelessWidget {
   final String pathWallpaper = "res/images/topbar_wallpaper.jpg";
@@ -193,6 +194,8 @@ class TourismDrawer extends StatelessWidget {
                               case 0:
                                 Scaffold.of(context).openEndDrawer();
                                 break;
+                              case 5:
+                                showDialog(context: context, child: AboutUsWidget());
                             }
                           }
                       );

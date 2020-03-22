@@ -19,7 +19,7 @@ class _SearchPageState extends State<SearchPage> {
     "Tour": Colors.blue,
   };
 
-  int _indexSelected = 0;
+  int _indexSelected;
 
   Widget getChip({String label, Color color, bool selected, int index}) {
     return ChoiceChip(
