@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourism/models/cities_model.dart';
 import 'package:tourism/models/reviews_model.dart';
+import 'package:tourism/views/search_page.dart';
 import 'package:tourism/widgets/dashboard_widgets.dart';
 
 class Dashboard extends StatelessWidget {
@@ -10,6 +11,7 @@ class Dashboard extends StatelessWidget {
   static const String TRENDS = "Trend";
   static const String MOST_RATED_TOUR = "Most Rated Tour";
   static const String WHAT_PEOPLE_THINK = "What people think about";
+  static const String HINT_SEARCH = "What would you like to visit?";
 
   Widget getDivider(String title) {
     return Row(
@@ -53,7 +55,25 @@ class Dashboard extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      child: SearchBar(hintText: "What would you like to visit today?",),
+                      child: GestureDetector(
+                          child: Hero(
+                            tag: 'search',
+                            child: SearchBar(
+                              hintText: HINT_SEARCH,
+                              isEnabled: false,
+                            ),
+                          ),
+                        onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SearchPage(
+                                  hintText: HINT_SEARCH,
+                                ),
+                              )
+                            );
+                        },
+                      ),
                       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                       width: double.infinity,
                     ),

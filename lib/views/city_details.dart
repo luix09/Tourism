@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourism/models/cities_model.dart';
-import 'package:tourism/widgets/city_details_wdgets.dart';
+import 'package:tourism/widgets/city_details_widgets.dart';
 
 class CityDetails extends StatefulWidget {
   final int city;

@@ -208,32 +208,38 @@ class TourismDrawer extends StatelessWidget {
 
 class SearchBar extends StatefulWidget {
   final String hintText;
+  final bool isEnabled;
 
-  SearchBar({this.hintText});
+  SearchBar({
+    this.hintText,
+    this.isEnabled = true,
+  });
 
   @override
   _SearchBarState createState() => _SearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar>
-    with SingleTickerProviderStateMixin {
+class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: Color(0xFFF3F3F3),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TextField(
-        cursorRadius: Radius.circular(20),
-        showCursor: false,
-        decoration: InputDecoration(
-            border: InputBorder.none,
-            prefixIcon:
-                Icon(Icons.search, color: Colors.black38.withOpacity(0.7)),
-            hintText: widget.hintText),
+    return Material(
+      child: Container(
+        height: 50,
+        margin: EdgeInsets.symmetric(horizontal: 15),
+        decoration: BoxDecoration(
+          color: Color(0xFFF3F3F3),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: TextField(
+          cursorRadius: Radius.circular(20),
+          showCursor: widget.isEnabled,
+          decoration: InputDecoration(
+            enabled: widget.isEnabled,
+              border: InputBorder.none,
+              prefixIcon:
+                  Icon(Icons.search, color: Colors.black38.withOpacity(0.7)),
+              hintText: widget.hintText),
+        ),
       ),
     );
   }
