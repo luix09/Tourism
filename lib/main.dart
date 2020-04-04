@@ -11,6 +11,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("res/wallpaper/login-image.jpg"), context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<CitiesModel>(create: (_) => CitiesModel()),

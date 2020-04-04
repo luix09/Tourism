@@ -74,9 +74,15 @@ class EntryWidget extends StatelessWidget {
 
   final editingController;
   final String hint;
+  final bool isObscured;
   final Icon icon;
 
-  EntryWidget({this.editingController, this.hint, this.icon});
+  EntryWidget({
+    this.editingController,
+    this.hint,
+    this.icon,
+    this.isObscured = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +97,7 @@ class EntryWidget extends StatelessWidget {
         padding: const EdgeInsets.only(top: 3.0),
         child: TextField(
           controller: editingController,
+          obscureText: isObscured,
           cursorRadius: Radius.circular(20),
           decoration: InputDecoration(
               prefixIcon: icon,

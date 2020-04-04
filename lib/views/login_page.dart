@@ -18,9 +18,9 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     // Clean up the controller when the widget is removed from the
     // widget tree.
+    super.dispose();
     _controllerUsername.dispose();
     _controllerPassword.dispose();
-    super.dispose();
   }
 
   @override
@@ -32,9 +32,14 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         height: height,
         width: width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(wallpaper),
+            fit: BoxFit.cover
+          )
+        ),
         child: Stack(
           children: <Widget>[
-            Positioned.fill(child: Image.asset(wallpaper, fit: BoxFit.cover)),
             Positioned(child: LogoWidget(), top: (height / 6), left: 25),
             Positioned(
               bottom: 30,
@@ -57,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       hint: "Password",
                       editingController: _controllerPassword,
                       icon: Icon(Icons.chevron_right),
+                      isObscured: true,
                     ),
                     Align(
                       alignment: Alignment.centerRight,
