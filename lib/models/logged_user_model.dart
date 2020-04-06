@@ -4,6 +4,6 @@ class LoggedUserModel extends ChangeNotifier {
   final String name;
   final String surname;
   final String country;
-
-  LoggedUserModel({this.name, this.surname, this.country});
+  final List<String> favourites;
+  LoggedUserModel({this.name, this.surname, this.country, this.favourites});
 }

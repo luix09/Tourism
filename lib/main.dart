@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LoggedUserModel>(create: (_) => LoggedUserModel(
             name: "Luigi",
             surname: "Cuomo",
-            country: "Italy"))
+            country: "Italy",
+          favourites: [
+            "Berlin",
+            "Tokyo",
+            "Amsterdam",
+            "Barcelona"
+          ]
+        ))
       ],
       child: MaterialApp(
         title: 'Tourism',
