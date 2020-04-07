@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourism/widgets/custom_icons.dart';
 import 'package:tourism/widgets/login_page_widgets.dart';
 
 bool _validateCredentials(String username, String password) {
@@ -35,17 +36,14 @@ class _LoginPageState extends State<LoginPage> {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(wallpaper),
-            fit: BoxFit.cover
-          )
-        ),
+            image: DecorationImage(
+                image: AssetImage(wallpaper), fit: BoxFit.cover)),
         child: Form(
           child: Stack(
             children: <Widget>[
               Positioned(child: LogoWidget(), top: (height / 6), left: 25),
               Positioned(
-                bottom: height/5,
+                bottom: height / 5,
                 left: width / 12,
                 child: Container(
                   padding: EdgeInsets.only(top: 20),
@@ -70,29 +68,60 @@ class _LoginPageState extends State<LoginPage> {
                         isObscured: true,
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.bottomRight,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: FlatButton(
-                            textColor: Colors.blue,
-                            child: Text(
-                              "Forgot password?",
-                            ),
-                            onPressed: (){},
+                          padding: const EdgeInsets.only(top: 5, left: 5),
+                          child: Row(
+                            children: <Widget>[
+                              ButtonBar(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  SocialIcon(
+                                    colors: [Colors.blue, Colors.blue],
+                                    iconData: CustomIcons.facebook,
+                                    onPressed: () {},
+                                  ),
+                                  SocialIcon(
+                                    colors: [Colors.red, Colors.red],
+                                    iconData: CustomIcons.googlePlus,
+                                    onPressed: () {},
+                                  ),
+                                  SocialIcon(
+                                    colors: [
+                                      Colors.lightBlueAccent,
+                                      Colors.lightBlueAccent
+                                    ],
+                                    iconData: CustomIcons.twitter,
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 20),
+                              FlatButton(
+                                textColor: Colors.black,
+                                child: Text(
+                                  "Forgot password?",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                                onPressed: () {},
+                              ),
+                            ],
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right : 10.0),
+                        padding: const EdgeInsets.only(right: 10.0),
                         child: ButtonBar(
-                            children: <Widget>[
-                              ValidationButton(
-                                validate: _validateCredentials,
-                                enteredUsername: _controllerUsername.value.text,
-                                enteredPassword: _controllerPassword.value.text,
-                                textButton: "Sign in",
-                              )
-                            ],
+                          children: <Widget>[
+                            ValidationButton(
+                              validate: _validateCredentials,
+                              enteredUsername: _controllerUsername.value.text,
+                              enteredPassword: _controllerPassword.value.text,
+                              textButton: "Sign in",
+                            )
+                          ],
                         ),
                       ),
                     ],

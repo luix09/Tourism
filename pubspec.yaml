@@ -136,3 +136,6 @@ flutter:
         - asset: res/fonts/PT_Sans/PTSans-Italic.ttf
         - asset: res/fonts/PT_Sans/PTSans-BoldItalic.ttf
         - asset: res/fonts/PT_Sans/PTSans-Regular.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: res/social/CustomIcons.ttf
