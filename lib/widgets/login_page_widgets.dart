@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tourism/models/logged_user_model.dart';
 
 class LogoWidget extends StatelessWidget {
   @override
@@ -59,8 +61,7 @@ class ValidationButton extends StatelessWidget {
       elevation: 5,
       color: Color(0xFFe89607),
       onPressed: (){
-        if(validate(enteredUsername,
-            enteredPassword))
+        if(Form.of(context).validate())
           Navigator.pushReplacementNamed(context, '/dashboard');
         else
           Scaffold.of(context).showSnackBar(SnackBar(content: Text("Authentication failed"),));
@@ -72,12 +73,14 @@ class ValidationButton extends StatelessWidget {
 
 class EntryWidget extends StatelessWidget {
 
+  final String fieldName;
   final editingController;
   final String hint;
   final bool isObscured;
   final Icon icon;
 
   EntryWidget({
+    this.fieldName,
     this.editingController,
     this.hint,
     this.icon,
@@ -86,6 +89,7 @@ class EntryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loggedUser = Provider.of<LoggedUserModel>(context);
     return Container(
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 15),
@@ -95,7 +99,7 @@ class EntryWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 3.0),
-        child: TextField(
+        child: TextFormField(
           controller: editingController,
           obscureText: isObscured,
           cursorRadius: Radius.circular(20),
@@ -103,6 +107,19 @@ class EntryWidget extends StatelessWidget {
               prefixIcon: icon,
               border: InputBorder.none,
               hintText: hint),
+          validator: (value) {
+            if(value.isEmpty)
+              return 'This field can\'t be empty';
+            else if(fieldName == "username") {
+              if(loggedUser.nickname == value)
+                return null;
+            }
+            else if(fieldName == "password") {
+              if(loggedUser.password == value)
+                return null;
+            }
+            return null;
+          },
         ),
       ),
     );
