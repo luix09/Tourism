@@ -39,7 +39,7 @@ class ValidationButton extends StatelessWidget {
   final String enteredPassword;
 
   ValidationButton({
-    @required this.validate,
+    this.validate,
     this.textButton,
     this.enteredPassword,
     this.enteredUsername
