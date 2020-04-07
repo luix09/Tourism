@@ -139,3 +139,22 @@ flutter:
     - family: CustomIcons
       fonts:
         - asset: res/social/CustomIcons.ttf
+    - family: Comfortaa
+      fonts:
+        - asset: res/fonts/Comfortaa/static/Comfortaa-Bold.ttf
+        - asset: res/fonts/Comfortaa/static/Comfortaa-Light.ttf
+        - asset: res/fonts/Comfortaa/static/Comfortaa-Medium.ttf
+        - asset: res/fonts/Comfortaa/static/Comfortaa-Regular.ttf
+        - asset: res/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf
+    - family: OpenSans
+      fonts:
+        - asset: res/fonts/Open_Sans/OpenSans-Bold.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-BoldItalic.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-ExtraBold.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-Italic.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-Light.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-LightItalic.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-Regular.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-SemiBold.ttf
+        - asset: res/fonts/Open_Sans/OpenSans-SemiBoldItalic.ttf

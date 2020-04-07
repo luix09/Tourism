@@ -33,8 +33,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: Colors.white,
+          fontFamily: "OpenSans",
           iconTheme: IconThemeData(
-            color: Colors.black
+            color: Colors.black,
           ),
         ),
         initialRoute: '/login',

@@ -128,7 +128,9 @@ class UserPage extends StatelessWidget {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
-                return Container(height: 90, color: Colors.white);
+                if(index < 7)
+                  return Container(height: 90, color: Colors.white);
+                return null;
               }),
             )
           ],

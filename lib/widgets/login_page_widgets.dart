@@ -22,7 +22,7 @@ class LogoWidget extends StatelessWidget {
             child: Text(
               "Tourism",
               style: TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.bold, fontSize: 35, fontFamily: "Merriweather"),
+                  color: Colors.black, fontWeight: FontWeight.w600, fontSize: 35, fontFamily: "Merriweather"),
             ),
           ),
         ],
@@ -91,14 +91,14 @@ class EntryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final loggedUser = Provider.of<LoggedUserModel>(context);
     return Container(
-      height: 50,
+      height: 70,
       margin: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
         color: Color(0xFFF3F3F3),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 3.0),
+        padding: const EdgeInsets.only(top: 10.0, left: 10),
         child: TextFormField(
           controller: editingController,
           obscureText: isObscured,
@@ -108,15 +108,13 @@ class EntryWidget extends StatelessWidget {
               border: InputBorder.none,
               hintText: hint),
           validator: (value) {
-            if(value.isEmpty)
-              return 'This field can\'t be empty';
-            else if(fieldName == "username") {
-              if(loggedUser.nickname == value)
-                return null;
+            if(fieldName == "username") {
+              if(loggedUser.nickname != value)
+                return 'invalid username';
             }
             else if(fieldName == "password") {
-              if(loggedUser.password == value)
-                return null;
+              if(loggedUser.password != value)
+                return 'invalid password';
             }
             return null;
           },

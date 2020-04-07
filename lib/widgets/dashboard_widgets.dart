@@ -161,7 +161,7 @@ class TourismDrawer extends StatelessWidget {
                               fontSize: 18,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.italic,
-                              fontFamily: "PTSans"),
+                              fontFamily: "OpenSans"),
                         ),
                       ),
                     ),
@@ -378,7 +378,7 @@ class MostRatedCard extends StatelessWidget {
                       child: Text(
                         city.tours[0].titleTour,
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.w700),
+                            fontSize: 22, fontWeight: FontWeight.w700, fontFamily: "PTSans"),
                       ),
                     ),
                     Positioned(

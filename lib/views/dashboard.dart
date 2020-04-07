@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourism/models/cities_model.dart';
@@ -16,18 +18,19 @@ class Dashboard extends StatelessWidget {
   Widget getDivider(String title) {
     return Row(
       children: <Widget>[
-        Expanded(child: Divider(thickness: 5)),
+        Expanded(child: Divider(thickness: 1.5)),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Text(
             title,
             style: TextStyle(
                 fontSize: 27,
-                fontWeight: FontWeight.bold,
-                fontFamily: "PTSans"),
+                fontWeight: FontWeight.w900,
+                fontStyle: FontStyle.italic,
+                fontFamily: "Comfortaa"),
           ),
         ),
-        Expanded(child: Divider(thickness: 5)),
+        Expanded(child: Divider(thickness: 1.5)),
       ],
     );
   }
@@ -35,8 +38,10 @@ class Dashboard extends StatelessWidget {
   List<CityOverview> getDiscoverCities(BuildContext context, String tagHeroSection) {
     final cities = Provider.of<CitiesModel>(context, listen: false);
     List<CityOverview> containers = [];
-    for (int index = 0; index < cities.citiesAvailable.length; index++)
+
+    for (int index = 0; index < cities.citiesAvailable.length; index++) {
       containers.add(CityOverview(index, tagHeroSection));
+    }
     return containers;
   }
 
@@ -89,7 +94,7 @@ class Dashboard extends StatelessWidget {
                       ),
                     ),
                     getDivider(TRENDS),
-                    SizedBox(height: 20),
+                    SizedBox(height: 40),
                     Container(
                       height: 225,
                       child: ListView(
@@ -99,7 +104,7 @@ class Dashboard extends StatelessWidget {
                         ),
                     ),
                     Divider(
-                      thickness: 5,
+                      thickness: 3,
                     ),
                     SizedBox(height: 15),
                     Container(
@@ -124,7 +129,7 @@ class Dashboard extends StatelessWidget {
                     MostRatedCard(city: "Tokyo", tagHeroSection: MOST_RATED_TOUR),
                     SizedBox(height: 20),
                     Divider(
-                      thickness: 5,
+                      thickness: 3,
                     ),
                     Container(
                       padding: EdgeInsets.only(bottom: 20, left: 15, top: 10),

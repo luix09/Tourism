@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             image: DecorationImage(
                 image: AssetImage(wallpaper), fit: BoxFit.cover)),
         child: Form(
+          key: _formKey,
           child: Stack(
             children: <Widget>[
               Positioned(child: LogoWidget(), top: (height / 6), left: 25),
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 left: width / 12,
                 child: Container(
                   padding: EdgeInsets.only(top: 20),
-                  height: height / 2.4,
+                  height: height / 2.2,
                   width: width / 1.2,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ],
                               ),
-                              SizedBox(width: 20),
+                              SizedBox(width: 10),
                               FlatButton(
                                 textColor: Colors.black,
                                 child: Text(
